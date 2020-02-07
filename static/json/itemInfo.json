@@ -1,0 +1,82 @@
+{
+	"status": 200,
+	"message": "请求成功",
+	"result": [
+        {
+            "title": "超级玛丽1",
+            "itemId": "001",
+            "videoImg": "http://localhost/static/images/video.png",
+            "createTime": "2020.01.05 15:30",
+            "score": 4,
+            "radar": [90, 100, 77, 88, 77, 99],
+            "info": {
+                "info": "info"
+            },
+            "comment": {
+                "teacherName": "小高老师",
+                "teacherComment": "小明很用心，这节课表现的很好，下次继续努力哦！",
+                "comments": [
+                    {
+                        "userName": "小明家长",
+                        "userId": "001",
+                        "replyUserId": "",
+                        "replyUserName": "",
+                        "replyContent": "谢谢老师的夸奖"
+                    },
+                    {
+                        "userName": "小高老师",
+                        "userId": "002",
+                        "replyUserId": "001",
+                        "replyUserName": "小明家长",
+                        "replyContent": "我一定会督促孩子好好学习的"
+                    }
+                ]
+            }
+        },
+        {
+            "title": "超级玛丽2",
+            "itemId": "002",
+            "videoImg": "http://localhost/static/images/video.png",
+            "createTime": "2020.01.05 15:30",
+            "score": 3,
+            "radar": [80, 70, 77, 68, 87, 99],
+            "info": {
+                "info": "info"
+            },
+            "comment": {
+                "teacherName": "小高老师",
+                "teacherComment": "小明很用心，这节课表现的很好，下次继续努力哦！",
+                "comments": [
+                    {
+                        "userName": "小明家长",
+                        "userId": "001",
+                        "replyUserId": "",
+                        "replyUserName": "",
+                        "replyContent": "谢谢老师的夸奖"
+                    },
+                    {
+                        "userName": "小高老师",
+                        "userId": "002",
+                        "replyUserId": "001",
+                        "replyUserName": "小明家长",
+                        "replyContent": "我一定会督促孩子好好学习的"
+                    },
+                    {
+                        "userName": "小高老师",
+                        "userId": "002",
+                        "replyUserId": "001",
+                        "replyUserName": "小明家长",
+                        "replyContent": "第三条评论"
+                    },
+                    {
+                        "userName": "小高老师",
+                        "userId": "002",
+                        "replyUserId": "001",
+                        "replyUserName": "小明家长",
+                        "replyContent": "【超出三条评论自动收起】第四条评论"
+                    }
+                ]
+            }
+        }
+    ]
+}

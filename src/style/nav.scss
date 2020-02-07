@@ -1,0 +1,29 @@
+
+body{
+    margin-bottom: 120px;
+}
+nav{
+    width: 100%;
+    height: 100px;
+    border-top: 1px solid #ccc;
+    background-color: #fff;
+    position: fixed;
+    bottom: 0px;
+    padding: 15px 120px 0px;
+    display: flex;
+    justify-content: space-between;
+    z-index: 10;
+    .item{
+        color: #999;
+        font-size: 20px;
+        text-align: center;
+        img{
+            height: 44px;
+            display: block;
+            margin-bottom: 10px;
+        }
+    }
+    .activite{
+        color: #fbcf90;
+    }
+}

@@ -1,0 +1,10 @@
+{
+	"status": 200,
+	"message": "请求成功",
+	"result": {
+        "userName": "小明家长",
+        "userId": "001",
+        "avater": "http://localhost/static/images/avater.png",
+        "isNews": true
+    }
+}

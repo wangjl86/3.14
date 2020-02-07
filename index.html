@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>三点一四 前端面试题</title>
+    <style>
+        /* Vue 实例编译前 隐藏 */
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="app" v-cloak>
+        <header>
+            <div class="user-info">
+                <div class="avater"><img :src="userInfo.avater" alt=""></div>
+                <span class="name">{{ userInfo.userName }}</span>
+                <div class="line"></div>
+            </div>
+            <div class="user-news" @click="userInfo.isNews=false">
+                <img class="logo" src="${require('./src/assets/images/logo.png')}" alt="">
+                <div class="news">
+                    <img src="${require('./src/assets/images/news.png')}" alt="">
+                    <span v-if="userInfo.isNews"></span>
+                </div>
+            </div>
+        </header>
+        <main>
+            <div class="items">
+                <div class="title"><img src="${require('./src/assets/images/item-title.png')}" alt=""></div>
+                <div v-for="(item, index) in items"  class="item">
+                    <div class="content">
+                        <div class="item-title">
+                            <i></i>
+                            {{item.title}}
+                            <span>{{item.createTime}}</span>
+                            <img class="share" src="${require('./src/assets/images/share.png')}" alt="">
+                        </div>
+                        <div class="item-content">
+                            <img class="video" @click="showPopup('即将跳转到作品页面播放')" src="${require('./src/assets/images/video.png')}" alt="">
+                            <div :class="'score'+item.score" class="score">
+                                <div v-for="(v, i) in 5" @click="pushScore(v, index)"></div>
+                            </div>
+                            <div class="radar" :id="'radar'+item.itemId">loading...</div>
+                        </div>
+                        <div class="item-comment">
+                            <span></span><span></span><span></span>
+                            <input @click="showInputButton(index)" @keyup.13="pushComment(index ,item.itemId)" :class="item.showInput ? 'showInput' : ''" v-model="cacheVal" type="text">
+                            <button @click="pushComment(index ,item.itemId)" :class="item.showInput ? 'showButton' : ''">发送</button>
+                        </div>
+                    </div>
+                    <div class="comment">
+                        <div class="comment-item teacher-comment">老师点评：<span>{{item.comment.teacherComment}}</span></div>
+                        <div v-if="item.showComment" v-for="comment in item.comment.comments"  class="comment-item">
+                            <input type="text" @click="showInputButton(index, comment.userId, comment.userName)" @keyup.13="pushComment(index ,item.itemId)" v-model="cacheVal">
+                            <span>{{comment.userName}}</span>回复<i v-if="comment.replyUserId == userInfo.userId">您</i><span>：</span>{{comment.replyContent}}
+                        </div>
+                        <div :class="item.showComment ? 'close' : 'open'" @click="openComment(index)"></div>
+                    </div>
+                </div>
+            </div>
+            <div v-show="isShowLoading" class="loading">
+                加载中...
+            </div>
+            <div v-show="popup" class="popup">{{popup}}</div>
+        </main>
+        <nav>
+            <div class="item"><img src="${require('./src/assets/images/nav1.png')}" alt="">作品</div>
+            <div class="item"><img src="${require('./src/assets/images/nav2.png')}" alt="">课程</div>
+            <div class="item activite"><img src="${require('./src/assets/images/nav3.jpg')}" alt="">我的</div>
+        </nav>
+    </div>
+</body>
+<script>
+</script>
+</html>
