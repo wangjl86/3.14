@@ -39,14 +39,14 @@ new Vue({
 	},
 	created(){
 		// 获取用户信息&是否有新消息
-		axios.get('http://localhost/static/json/userInfo.json').then((res)=>{
+		axios.get('static/json/userInfo.json').then((res)=>{
 			if(res.data.status == 200){
 				this.userInfo = res.data.result
 			}
 		})
 
 		// 获取作品信息
-		axios.get('http://localhost/static/json/itemInfo.json').then((res)=>{
+		axios.get('static/json/itemInfo.json').then((res)=>{
 			if(res.data.status == 200){
 				// 遍历 - 默认隐藏输入框 & 评论大于3条隐藏
 				res.data.result.forEach((item)=>{
@@ -154,7 +154,7 @@ new Vue({
 				return;
 			}
 			// 此处应为 post 请求
-			axios.get('http://localhost/static/json/userInfo.json',{
+			axios.get('static/json/userInfo.json',{
 				'itemId': itemId,					// 作品ID
 				'replyUserId': this.cacheCommentUserId,	// 回复用户ID
 				'value': this.cacheVal				// 回复内容
@@ -176,7 +176,7 @@ new Vue({
 		// 评分
 		pushScore(scoreNum, index){
 			this.items[index].score = scoreNum;
-			axios.get('http://localhost/static/json/pushScore.json').then((res)=>{
+			axios.get('static/json/pushScore.json').then((res)=>{
 				if(res.data.status == 200){
 					this.showPopup('评分成功，你给了'+scoreNum+'颗星~')
 				}
@@ -228,7 +228,7 @@ new Vue({
 				// 利用 Promise 设置1秒定时器的回调函数
 				this.showLoading().then(() => {
 					// 获取更多 作品信息
-					axios.get('http://localhost/static/json/itemInfo2.json').then((res)=>{
+					axios.get('static/json/itemInfo2.json').then((res)=>{
 						if(res.data.status == 200){
 							// 遍历评论 - 默认隐藏输入框 & 评论大于3条隐藏
 							res.data.result.forEach((item)=>{
